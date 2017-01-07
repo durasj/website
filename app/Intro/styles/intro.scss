@@ -1,0 +1,30 @@
+#intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+
+    font-size: 4em;
+    font-weight: 300;
+    text-align: center;
+
+    h1 {
+        font-weight: 300;
+
+        display: inline-block;
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #intro {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #intro {
+        font-size: 2em;
+    }
+}

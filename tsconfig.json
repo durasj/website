@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "es6",
+        "moduleResolution": "node",
+        "baseUrl": "app",
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "jsx": "preserve",
+        "allowJs": true
+    }
+}

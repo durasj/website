@@ -1,0 +1,138 @@
+.tile {
+    @include fadeInUp();
+    flex-direction: column;
+    margin: 2px;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+
+        .title {
+            font-size: 1.75em;
+            font-weight: 300;
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        .period {
+            font-size: 0.5em;
+            font-weight: 200;
+            padding-left: 6px;
+        }
+    }
+}
+
+.tile-photo {
+    position: relative;
+    z-index: 1;
+    height: 260px;
+
+    .photo {
+        width: 100%;
+        height: 260px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        opacity: .1;
+        background: transparent no-repeat 0px 0px;
+        background-size: 200%;
+        filter: grayscale(75%);
+        transition: 0.25s opacity ease-in-out;
+    }
+
+    .content {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.25s ease-in-out;
+    }
+
+    &:hover {
+        background-color: transparent;
+
+        .photo {
+            filter: none;
+            opacity: 1;
+        }
+
+        .content {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    &.an-backgroundZoomOut:hover {
+        .photo {
+            animation: backgroundZoomOut 2s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    &.an-moveBackgroundRight:hover {
+        .photo {
+            animation: moveBackgroundRight 10s ease-in-out infinite;
+        }
+    }
+
+    &.an-moveBackgroundDown:hover {
+        .photo {
+            animation: moveBackgroundDown 10s ease-in-out infinite;
+        }
+    }
+}
+
+@each $tile-color in $colors {
+    $color: nth($tile-color, 1);
+    $color-bg-color: nth($tile-color, 2);
+    $color-content-color: nth($tile-color, 3);
+
+    .tile.is-#{$color} {
+        background-color: #{$color-bg-color};
+        color: #{$color-content-color};
+        transition: background-color .25s ease-in-out;
+
+        .content {
+            height: 100%;
+            position: relative;
+
+            .title {
+                color: #{$color-content-color};
+
+                &:after {
+                    background-color: #{$color-content-color};
+                }
+            }
+
+            p, span {
+                color: #{$color-content-color};
+            }
+        }
+    }
+
+    .tile.is-#{$color}:hover {
+        background-color: #{invert($color-content-color)};
+        cursor: pointer;
+    }
+}
+
+
+@keyframes moveBackgroundDown {
+    0% { background-position: 0 0; }
+    50% { background-position: 0 100%; }
+    100% { background-position: 0 0; }
+}
+
+@keyframes moveBackgroundRight {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+}
+
+@keyframes backgroundZoomOut {
+    0% { background-size: 200%; }
+    100% { background-size: 100%; }
+}

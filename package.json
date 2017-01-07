@@ -1,0 +1,57 @@
+{
+  "name": "durasme",
+  "version": "1.0.0",
+  "description": "Personal site of Jakub Duras, Web and Mobile App Developer",
+  "main": "index.html",
+  "homepage": "duras.me",
+  "private": true,
+  "repository": "https://github.com/durasj/website.git",
+  "dependencies": {
+    "animatewithsass": "^3.2.1",
+    "browserify": "^13.0.1",
+    "bulma": "^0.2.3",
+    "babel-polyfill": "^6.16.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-image-gallery": "^0.7.9"
+  },
+  "devDependencies": {
+    "@types/react": "^0.14.52",
+    "@types/react-dom": "^0.14.19",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.13.0",
+    "front-matter": "^2.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "marked": "^0.3.6",
+    "pump": "^1.0.2",
+    "rollup-stream": "^1.18.0",
+    "tsify": "^2.0.3",
+    "tslint": "^4.3.1",
+    "tslint-react": "^2.2.0",
+    "typescript": "^2.1.4",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "default": "gulp build",
+    "start": "gulp serve",
+    "content": "node content.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "author": "Jakub Ďuraš<jakub@duras.me>",
+  "license": "MIT"
+}

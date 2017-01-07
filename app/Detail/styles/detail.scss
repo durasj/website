@@ -1,0 +1,36 @@
+@import "react-image-gallery/styles/scss/image-gallery";
+
+#detail {
+    @include fadeInUp();
+
+    h1 {
+        display: inline-block;
+    }
+
+    .close {
+        font-size: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        transition: opacity 0.25s ease-in-out;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .section > .container > .columns {
+        align-items: flex-start;
+    }
+
+    .meta {
+        background-color: $light;
+    }
+
+    .skills {
+        font-style: italic;
+    }
+
+    .image-gallery {
+        margin-top: 36px;
+    }
+}
