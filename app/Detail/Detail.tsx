@@ -2,6 +2,8 @@ import React from 'react';
 
 import ImageGallery from '../../node_modules/react-image-gallery/build/image-gallery';
 
+import DocumentTitle from 'react-document-title';
+
 import { IProject } from '../Projects';
 
 export default class Detail extends React.Component<{project: IProject}, {}> {
@@ -52,6 +54,7 @@ export default class Detail extends React.Component<{project: IProject}, {}> {
                     <div className="container">
                         <div className="columns is-mobile">
                             <div className="column">
+                                <DocumentTitle title={this.props.project.title + ' | ' + 'Jakub Duras'} />
                                 <h1 className="title is-3">{this.props.project.title}</h1>
                                 <h2 className="subtitle">{this.props.project.description}</h2>
                             </div>

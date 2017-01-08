@@ -2,6 +2,10 @@
 Repo for my simple personal portfolio hosted at duras.me
 
 ## TODO
+- Tests
+- ~~Sitemap~~
+- ~~Update title on navigation~~
+- ~~Favicon - colorful lambda~~
 - ~~Photos size reduction - progressive JPEG, size~~
 - ~~Intro above portfolio~~
 - ~~Choose animation for photo in bg~~

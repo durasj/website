@@ -6,6 +6,7 @@
       "**/.*",
       "**/node_modules/**",
       "app",
+      "graphics",
       "content.js",
       "gulpfile.js",
       "package.json",
