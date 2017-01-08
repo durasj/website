@@ -2,6 +2,7 @@
 Repo for my simple personal portfolio hosted at duras.me
 
 ## TODO
+- ~~Photos size reduction - progressive JPEG, size~~
 - ~~Intro above portfolio~~
 - ~~Choose animation for photo in bg~~
 - ~~Multiple photos per tile in format `[{src: string, caption: string}]`~~
@@ -10,11 +11,13 @@ Repo for my simple personal portfolio hosted at duras.me
 - ~~Detail white background~~
 - ~~Check naming conventions and dir structure~~
 - Content
-  - 2017
-  - 2016
-  - 2015
-  - 2014
-  - before 2014
+  - YoActivities
+  - Portfolio
+  - Waste management system & mobile app
+  - CMS
+  - Network and cloud
+  - ~~2015~~
+  - ~~2014~~
 
 ## TODO Content Generator
 ~~Gulp task that will generate a JSON content file with all the properties from the directories~~
