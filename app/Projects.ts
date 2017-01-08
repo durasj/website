@@ -10,9 +10,7 @@ export interface IProject {
     skills?: string[],
     photos?: {src: string, caption: string}[],
     animation?: string,
-    content?: string,
-    created?: string,
-    modified?: string
+    content?: string
 }
 
 export const Projects: IProject[] = (<any>projects);

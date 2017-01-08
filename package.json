@@ -41,9 +41,11 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
-    "default": "gulp build",
+    "build": "gulp build",
     "start": "gulp serve",
     "content": "node content.js",
+    "deploy": "firebase deploy",
+    "update": "npm content && npm build && npm deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "ignore": [

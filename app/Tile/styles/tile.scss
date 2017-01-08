@@ -67,20 +67,20 @@
 
     &.an-backgroundZoomOut:hover {
         .photo {
-            animation: backgroundZoomOut 2s ease-in-out;
+            animation: backgroundZoomOut 1s ease-in-out;
             animation-fill-mode: forwards;
         }
     }
 
     &.an-moveBackgroundRight:hover {
         .photo {
-            animation: moveBackgroundRight 10s ease-in-out infinite;
+            animation: moveBackgroundRight 5s ease-in-out infinite;
         }
     }
 
     &.an-moveBackgroundDown:hover {
         .photo {
-            animation: moveBackgroundDown 10s ease-in-out infinite;
+            animation: moveBackgroundDown 5s ease-in-out infinite;
         }
     }
 }
