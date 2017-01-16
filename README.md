@@ -4,6 +4,8 @@ Repo for my simple personal portfolio hosted at duras.me
 ## TODO
 - Tests
 - Deal with the scroll position
+- Simplify markup - mainly index
+- Drop CSS framework implementing only required styles
 - ~~Meta description for main page~~
 - ~~Nicer urls~~
 - ~~Make tiles real links?~~
@@ -20,7 +22,7 @@ Repo for my simple personal portfolio hosted at duras.me
 - ~~Check naming conventions and dir structure~~
 - Content
   - YoActivities
-  - Portfolio
+  - This Portfolio
   - Waste management system & mobile app
   - CMS
   - Network and cloud
