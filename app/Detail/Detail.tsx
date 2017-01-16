@@ -18,7 +18,7 @@ export default class Detail extends React.Component<{project: IProject}, {}> {
         super(props);
 
         if (this.props.project.photos !== undefined) {
-            this.images = this.props.project.photos.map(photo => {
+            this.images = this.props.project.photos.map((photo) => {
                 return {
                     original: photo.src,
                     thumbnail: photo.src,
@@ -41,7 +41,7 @@ export default class Detail extends React.Component<{project: IProject}, {}> {
         ) : undefined;
         const gallery = this.images !== undefined ? (
             <ImageGallery
-                ref={i => this._imageGallery = i}
+                ref={(i) => this._imageGallery = i}
                 items={this.images}
                 showNav={false}
                 showPlayButton={false}
@@ -86,6 +86,7 @@ export default class Detail extends React.Component<{project: IProject}, {}> {
     }
 
     protected close() {
-        location.hash = '#';
+        history.pushState({}, '', '/');
+        dispatchEvent(new Event('popstate'));
     }
 }

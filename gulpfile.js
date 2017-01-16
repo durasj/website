@@ -1,28 +1,29 @@
 'use strict';
 
-var gulp = require('gulp');
-var source = require('vinyl-source-stream');
+const gulp = require('gulp');
+const source = require('vinyl-source-stream');
 
-var path = require('path');
+const path = require('path');
 
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var cssnano = require('gulp-cssnano');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const cssnano = require('gulp-cssnano');
+const autoprefixer = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
 
-var tsify = require('tsify');
-var browserify = require('browserify');
-var babelify = require('babelify');
+const tsify = require('tsify');
+const browserify = require('browserify');
+const babelify = require('babelify');
 
-var uglify = require('gulp-uglify');
-var pump = require('pump');
+const uglify = require('gulp-uglify');
+const pump = require('pump');
 
-var browserSync = require('browser-sync');
+const browserSync = require('browser-sync');
+const historyApiFallback = require('connect-history-api-fallback')
 
-var paths = {
+const paths = {
   sass: ['app/**/*.scss'],
-  ts: ['typings/index.d.ts', 'app/**/*.ts', 'app/**/*.tsx']
+  ts: ['typings/index.d.ts', 'app/**/*.ts', 'app/**/*.tsx'],
 };
 
 gulp.task('default', ['build']);
@@ -31,7 +32,10 @@ gulp.task('build', ['apply-prod-env', 'sass', 'ts:prod']);
 
 gulp.task('serve', function () {
   browserSync.init({
-    server: './'
+    server: {
+      baseDir: './',
+      middleware: [ historyApiFallback() ],
+    },
   });
 
   gulp.watch(paths.sass, ['sass']);
@@ -42,28 +46,28 @@ gulp.task('sass', function(done) {
   return gulp.src('app/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      includePaths: [path.join(__dirname, 'node_modules')]
+      includePaths: [path.join(__dirname, 'node_modules')],
     })).on('error', sass.logError)
     .pipe(cssnano())
     .pipe(autoprefixer({
       cascade: false,
-      remove: false
+      remove: false,
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./'))
     // Notify potential browserSync (inject into browsers)
     .pipe(browserSync.stream({
-      match: '**/*.css'
+      match: '**/*.css',
     }));
 });
 
 gulp.task('ts', function() {
-    var bundler = browserify()
+    const bundler = browserify()
       .add('./app/app.tsx')
       .plugin(tsify)
       .transform(babelify, {
         presets: ['latest', 'react'],
-        extensions: ['.js', '.ts', '.tsx']
+        extensions: ['.js', '.ts', '.tsx'],
       });
 
     return bundler.bundle()
@@ -71,7 +75,7 @@ gulp.task('ts', function() {
       .pipe(source('app.js'))
       .pipe(gulp.dest('./'))
       .pipe(browserSync.stream({
-        match: '**/*.js'
+        match: '**/*.js',
       }));
 });
 
@@ -85,7 +89,7 @@ gulp.task('compressjs', ['ts'], function(cb) {
   pump([
       gulp.src('app.js'),
       uglify(),
-      gulp.dest('./')
+      gulp.dest('./'),
     ],
     cb
   );

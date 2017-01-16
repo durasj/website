@@ -3,6 +3,10 @@ Repo for my simple personal portfolio hosted at duras.me
 
 ## TODO
 - Tests
+- Deal with the scroll position
+- ~~Meta description for main page~~
+- ~~Nicer urls~~
+- ~~Make tiles real links?~~
 - ~~Sitemap~~
 - ~~Update title on navigation~~
 - ~~Favicon - colorful lambda~~

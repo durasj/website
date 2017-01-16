@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Detail   from '../Detail';
-import Intro    from '../Intro';
-import Tile     from '../Tile';
+import Detail from '../Detail';
+import Intro from '../Intro';
+import Tile from '../Tile';
 
 import { Projects } from '../Projects';
 
@@ -10,28 +10,20 @@ export default class Me extends React.Component<{}, {opened: string}> {
     constructor(props: {}) {
         super(props);
 
-        this.state = {
-            opened: this.currentlyOpenedFromHash(),
-        };
-
+        this.routing(true);
         setTimeout(() => {
-            addEventListener("hashchange", () => {
-                const currentlyOpened = this.currentlyOpenedFromHash();
-
-                if (currentlyOpened !== this.state.opened) {
-                    this.setState({ opened: currentlyOpened });
-                }
-            });
+            addEventListener('popstate', this.routing.bind(this));
         });
     }
 
     public render(): React.ReactElement<{}> {
         const tiles = Projects.map((project, index) => {
-            const classes = ["column", (typeof project.size !== "undefined" ? project.size : 'is-half')];
+            const classes = ['column', (typeof project.size !== 'undefined' ? project.size : 'is-half')];
 
             return (
                 <div key={index} className={classes.join(' ')}>
                     <Tile
+                        id={project.id}
                         title={project.title}
                         color={project.color}
                         description={project.description}
@@ -39,8 +31,6 @@ export default class Me extends React.Component<{}, {opened: string}> {
                         skills={project.skills}
                         photos={project.photos}
                         animation={project.animation}
-
-                        onClick={this.open.bind(this, project.id)}
                     >
                         {project.content}
                     </Tile>
@@ -61,7 +51,7 @@ export default class Me extends React.Component<{}, {opened: string}> {
         );
 
         return (
-            <section className={"hero is-fullheight" + (!this.state.opened ? " is-light " : " ") + "is-bold"}>
+            <section className={'hero is-fullheight' + (!this.state.opened ? ' is-light ' : ' ') + 'is-bold'}>
                 {this.state.opened === undefined ? <Intro /> : ''}
                 {bodyContent}
 
@@ -72,8 +62,30 @@ export default class Me extends React.Component<{}, {opened: string}> {
         );
     }
 
-    private currentlyOpenedFromHash() {
-        const projectId = location.hash.substr(1);
+    private routing(initial = false) {
+        const openedId = this.currentlyOpenedFromUrl();
+
+        if (openedId !== undefined) {
+            const openedProject = Projects.find((project) => project.id === openedId);
+
+            if (openedProject === undefined) {
+                location.href = '/404.html';
+            }
+        }
+
+        if (initial === true) {
+            this.state = {
+                opened: openedId,
+            };
+        } else {
+            if (openedId !== this.state.opened) {
+                this.setState({ opened: openedId });
+            }
+        }
+    }
+
+    private currentlyOpenedFromUrl() {
+        const projectId = location.pathname.substr(1) || location.hash.substr(1);
 
         return (projectId.length > 0) ? projectId : undefined;
     }
@@ -83,6 +95,6 @@ export default class Me extends React.Component<{}, {opened: string}> {
     }
 
     private getOpenedProject() {
-        return Projects.find(project => project.id === this.state.opened);
+        return Projects.find((project) => project.id === this.state.opened);
     }
 }
