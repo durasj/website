@@ -5,7 +5,9 @@ Repo for my simple personal portfolio hosted at duras.me
 - Tests
 - Deal with the scroll position
 - Simplify markup - mainly index
-- Drop CSS framework implementing only required styles
+- Drop CSS framework implementing only required styles and inlining them
+- ~~Use HTTP2 Link Preload~~
+- ~~Add JSON-LD with the @context of schema.org, type Person~~
 - ~~Meta description for main page~~
 - ~~Nicer urls~~
 - ~~Make tiles real links?~~

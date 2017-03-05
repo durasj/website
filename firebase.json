@@ -30,6 +30,10 @@
             "value": "max-age=86400"
           }
         ]
+      },
+      {
+        "source": "/",
+        "headers": [{"key": "Link", "value": "</app.js>;rel=preload;as=script;nopush,</app.css>;rel=preload;as=style;nopush"}]
       }
     ],
     "cleanUrls": true

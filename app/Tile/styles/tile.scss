@@ -65,6 +65,10 @@
         }
     }
 
+    &.an-moveBackgroundDown .photo {
+        background-size: 100%;
+    }
+
     &.an-backgroundZoomOut:hover {
         .photo {
             animation: backgroundZoomOut 1s ease-in-out;
@@ -74,13 +78,13 @@
 
     &.an-moveBackgroundRight:hover {
         .photo {
-            animation: moveBackgroundRight 5s ease-in-out infinite;
+            animation: moveBackgroundRight 10s ease-in-out infinite;
         }
     }
 
     &.an-moveBackgroundDown:hover {
         .photo {
-            animation: moveBackgroundDown 5s ease-in-out infinite;
+            animation: moveBackgroundDown 10s ease-in-out infinite;
         }
     }
 }
@@ -122,7 +126,9 @@
 
 @keyframes moveBackgroundDown {
     0% { background-position: 0 0; }
+    20% { background-position: 0 5%; }
     50% { background-position: 0 100%; }
+    80% { background-position: 0 5%; }
     100% { background-position: 0 0; }
 }
 

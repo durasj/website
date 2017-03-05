@@ -32,5 +32,15 @@
 
     .image-gallery {
         margin-top: 36px;
+
+        .image-gallery-image {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: auto;
+                max-height: 600px;
+            }
+        }
     }
 }

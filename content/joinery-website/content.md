@@ -1,7 +1,7 @@
 ---
 title: Joinery website
 description: Website redesign for the joinery company
-size: one-third
+size: is-one-third
 color: brown
 period: '2011'
 skills: [design, web design, photo editing]
