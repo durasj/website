@@ -1,0 +1,51 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 128px 48px 48px 48px;
+
+    h2 {
+        font-size: 2em;
+        font-weight: lighter;
+        margin-bottom: 24px;
+    }
+
+    .items {
+        width: 100%;
+        max-width: 640px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .item {
+        display: flex;
+        white-space: nowrap;
+
+        margin: 24px 0 0 0;
+
+        &:last-child {
+            margin: 24px 0 0;
+        }
+
+        img {
+            margin-right: 8px;
+        }
+
+        &.email img {
+            margin-top: -0.25em;
+        }
+
+        &.github img {
+            margin-top: -0.15em;
+        }
+    }
+
+    .copyright {
+        display: inline-block;
+        width: 100%;
+        padding: 24px 24px 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

@@ -1,92 +1,76 @@
 .tile {
-    @include fadeInUp();
+    display: flex;
+    position: relative;
     flex-direction: column;
-    margin: 2px;
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 48px rgba(0, 0 ,0 , 0.3);
+    transition: box-shadow 0.25s ease-in-out;
+    animation: fadeIn .5s;
 
     .content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        padding: 24px;
+        color: $dark;
 
-        padding: 20px;
+        h3 {
+            width: 100%;
 
-        .title {
-            font-size: 1.75em;
-            font-weight: 300;
-            position: relative;
-            margin-bottom: 0;
+            font-size: 1.5em;
+            font-weight: lighter;
+            line-height: 1.5em;
         }
 
-        .period {
-            font-size: 0.5em;
+        .meta {
+            font-size: 0.9em;
             font-weight: 200;
-            padding-left: 6px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
     }
 }
 
 .tile-photo {
-    position: relative;
-    z-index: 1;
-    height: 260px;
-
     .photo {
         width: 100%;
-        height: 260px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        opacity: .1;
-        background: transparent no-repeat 0px 0px;
-        background-size: 200%;
-        filter: grayscale(75%);
+        height: 400px;
+        opacity: 1;
+        background: no-repeat transparent top/cover;
         transition: 0.25s opacity ease-in-out;
+        border-radius: 8px;
     }
 
     .content {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.25s ease-in-out;
+        z-index: 5;
+        position: absolute;
+        bottom: 0;
+        opacity: 0.95;
+        //padding-top: calc(24px + 4em);
+        background: $light;
+        //background: linear-gradient(transparent 0%, $light 45%);
+        width: calc(100% - 48px);
+
+        border-radius: 0 0 8px 8px;
     }
 
     &:hover {
-        background-color: transparent;
-
         .photo {
-            filter: none;
-            opacity: 1;
-        }
-
-        .content {
-            visibility: hidden;
-            opacity: 0;
+            opacity: 0.8;
         }
     }
+}
 
-    &.an-moveBackgroundDown .photo {
-        background-size: 100%;
-    }
-
-    &.an-backgroundZoomOut:hover {
-        .photo {
-            animation: backgroundZoomOut 1s ease-in-out;
-            animation-fill-mode: forwards;
-        }
-    }
-
-    &.an-moveBackgroundRight:hover {
-        .photo {
-            animation: moveBackgroundRight 10s ease-in-out infinite;
-        }
-    }
-
-    &.an-moveBackgroundDown:hover {
-        .photo {
-            animation: moveBackgroundDown 10s ease-in-out infinite;
-        }
-    }
+.tile-ghost {
+    display: block;
+    position: fixed;
+    border-radius: 8px;
+    background-color: $light;
+    z-index: 100;
+    box-shadow: 0 4px 48px rgba(0, 0 ,0 , 0.3);
+    transition: transform 0.25s;
+    transform-origin: top left;
 }
 
 @each $tile-color in $colors {
@@ -94,51 +78,11 @@
     $color-bg-color: nth($tile-color, 2);
     $color-content-color: nth($tile-color, 3);
 
-    .tile.is-#{$color} {
-        background-color: #{$color-bg-color};
-        color: #{$color-content-color};
-        transition: background-color .25s ease-in-out;
-
-        .content {
-            height: 100%;
-            position: relative;
-
-            .title {
-                color: #{$color-content-color};
-
-                &:after {
-                    background-color: #{$color-content-color};
-                }
-            }
-
-            p, span {
-                color: #{$color-content-color};
-            }
-        }
-    }
-
     .tile.is-#{$color}:hover {
-        background-color: #{invert($color-content-color)};
-        cursor: pointer;
+        box-shadow: 0 4px 48px rgba($color-bg-color, 0.75);
     }
-}
 
-
-@keyframes moveBackgroundDown {
-    0% { background-position: 0 0; }
-    20% { background-position: 0 5%; }
-    50% { background-position: 0 100%; }
-    80% { background-position: 0 5%; }
-    100% { background-position: 0 0; }
-}
-
-@keyframes moveBackgroundRight {
-    0% { background-position: 0 0; }
-    50% { background-position: 100% 0; }
-    100% { background-position: 0 0; }
-}
-
-@keyframes backgroundZoomOut {
-    0% { background-size: 200%; }
-    100% { background-size: 100%; }
+    .tile-ghost.is-#{$color} {
+        box-shadow: 0 4px 48px rgba($color-bg-color, 0.75);
+    }
 }

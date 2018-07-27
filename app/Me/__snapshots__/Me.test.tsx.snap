@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders with project opened 1`] = `
+<div
+  className="container"
+>
+  <Detail
+    onClose={[Function]}
+    project={
+      Object {
+        "archived": false,
+        "color": "blue",
+        "description": "Something nice",
+        "id": "something",
+        "link": "https://google.com",
+        "linkLabel": "My weekend project",
+        "period": "2222",
+        "photos": Array [
+          Object {
+            "caption": "Random photo I found on Google",
+            "src": "/google/random.jpg",
+          },
+          Object {
+            "caption": "Funny image from Google",
+            "src": "/google/funny.jpg",
+          },
+        ],
+        "skills": Array [
+          "all",
+          "right",
+          "skills",
+        ],
+        "title": "Something",
+        "type": "commercial",
+      }
+    }
+  />
+  <Footer />
+</div>
+`;
+
+exports[`Renders without project opened 1`] = `
+<div
+  className="container"
+>
+  <Intro />
+  <List
+    olderCommercial={false}
+    olderNoncommercial={false}
+    onOpen={[Function]}
+    onToggleOlderCommercial={[Function]}
+    onToggleOlderNoncommercial={[Function]}
+    projects={
+      Array [
+        Object {
+          "archived": false,
+          "color": "blue",
+          "description": "Something nice",
+          "id": "something",
+          "link": "https://google.com",
+          "linkLabel": "My weekend project",
+          "period": "2222",
+          "photos": Array [
+            Object {
+              "caption": "Random photo I found on Google",
+              "src": "/google/random.jpg",
+            },
+            Object {
+              "caption": "Funny image from Google",
+              "src": "/google/funny.jpg",
+            },
+          ],
+          "skills": Array [
+            "all",
+            "right",
+            "skills",
+          ],
+          "title": "Something",
+          "type": "commercial",
+        },
+        Object {
+          "archived": true,
+          "color": "grey",
+          "description": "Something archived",
+          "id": "else",
+          "period": "2009",
+          "photos": Array [
+            Object {
+              "caption": "Low quality photo",
+              "src": "/quality.jpg",
+            },
+          ],
+          "skills": Array [
+            "all",
+            "wrong",
+            "skills",
+          ],
+          "title": "Else",
+          "type": "commercial",
+        },
+        Object {
+          "archived": false,
+          "color": "white",
+          "description": "Pro bono stuff",
+          "id": "charity",
+          "period": "2019",
+          "photos": Array [
+            Object {
+              "caption": "Kind people at charity",
+              "src": "/kind.jpg",
+            },
+          ],
+          "skills": Array [
+            "only",
+            "pure",
+            "skills",
+          ],
+          "title": "Charity work",
+          "type": "noncommercial",
+        },
+        Object {
+          "archived": true,
+          "color": "black",
+          "description": "Just Another pro bono stuff",
+          "id": "other-charity",
+          "period": "2000",
+          "skills": Array [
+            "some",
+            "older",
+            "skills",
+          ],
+          "title": "Other charity",
+          "type": "noncommercial",
+        },
+      ]
+    }
+  />
+  <Footer />
+</div>
+`;

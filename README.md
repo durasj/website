@@ -1,38 +1,34 @@
 # Personal Website
-Repo for my simple personal portfolio hosted at duras.me
+Repo for my simple personal portfolio hosted at duras.me. There isn't a lot to see, but you are free to look around.
+
+```
+|- app/     - Source code - scss and ts(x) - each component in its own dir incl. unit test
+|- content/ - Projects - each in its own dir with content.md nad photos subdir
+|- cypress/ - Cypress E2E test files.
+|- icons/   - Logo and icon related files.
+|- testing/ - Files related to unit testing like mocks and coverage.
+|- *.*      - Configuration files and dist output.
+```
+
+## Attribution
+
+- Powered by [React](https://reactjs.org/)
+- Build using [gulp](https://gulpjs.com/) & [browserify](http://browserify.org/)
+- Markdown content converted using [marked](https://github.com/chjj/marked)
+- Icons [Linearicons](https://linearicons.com) from [Perxis](https://perxis.com/)
+- ... and kudos to many others, see [package.json](https://github.com/durasj/website/blob/master/package.json)
 
 ## TODO
-- Tests
-- Deal with the scroll position
-- Simplify markup - mainly index
-- Drop CSS framework implementing only required styles and inlining them
-- ~~Use HTTP2 Link Preload~~
-- ~~Add JSON-LD with the @context of schema.org, type Person~~
-- ~~Meta description for main page~~
-- ~~Nicer urls~~
-- ~~Make tiles real links?~~
-- ~~Sitemap~~
-- ~~Update title on navigation~~
-- ~~Favicon - colorful lambda~~
-- ~~Photos size reduction - progressive JPEG, size~~
-- ~~Intro above portfolio~~
-- ~~Choose animation for photo in bg~~
-- ~~Multiple photos per tile in format `[{src: string, caption: string}]`~~
-  - ~~First is chosen as background~~
-  - ~~All displayed in detail with lightbox and captions using [react-image-gallery](https://github.com/xiaolin/react-image-gallery)~~
-- ~~Detail white background~~
-- ~~Check naming conventions and dir structure~~
-- Content
-  - YoActivities
-  - This Portfolio
-  - Waste management system & mobile app
-  - CMS
-  - Network and cloud
-  - ~~2015~~
-  - ~~2014~~
+- Break down the Me.tsx (move the routing and global imports like Projects to app.tsx?)
+- Rename app/ to src/
+- Replace gulp & browserify with parceljs
+- Deploy new dist/ and not root
+- Think of cleaner way to handle animations
+- Better, optimized images (raw images with optimization at build time, better serving).
 
 ## TODO Content Generator
-~~Gulp task that will generate a JSON content file with all the properties from the directories~~
-- ~~*/content* dir will contain subdirectory for each project, file name used as project key~~
-  - ~~*photos/* - dir with photos where file name is used as caption~~
-  - ~~*content.md* - main content with YAML metadata compiled to jsx (html using [marked](https://github.com/chjj/marked))~~
+
+## TODO Content
+- Content
+  - Pixea
+  - Objednajonline

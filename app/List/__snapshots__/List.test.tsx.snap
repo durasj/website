@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders lists 1`] = `
+<div
+  className="list"
+>
+  <h2>
+    Commercial experience
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="blue"
+      description="Something nice"
+      id="something"
+      onOpen={[Function]}
+      period="2222"
+      photos={
+        Array [
+          Object {
+            "caption": "Random photo I found on Google",
+            "src": "/google/random.jpg",
+          },
+          Object {
+            "caption": "Funny image from Google",
+            "src": "/google/funny.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "all",
+          "right",
+          "skills",
+        ]
+      }
+      title="Something"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Show older
+    </button>
+  </div>
+  <h2>
+    Non-commercial / Open-source
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="white"
+      description="Pro bono stuff"
+      id="charity"
+      onOpen={[Function]}
+      period="2019"
+      photos={
+        Array [
+          Object {
+            "caption": "Kind people at charity",
+            "src": "/kind.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "only",
+          "pure",
+          "skills",
+        ]
+      }
+      title="Charity work"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Show older
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Renders lists with all archived items 1`] = `
+<div
+  className="list"
+>
+  <h2>
+    Commercial experience
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="blue"
+      description="Something nice"
+      id="something"
+      onOpen={[Function]}
+      period="2222"
+      photos={
+        Array [
+          Object {
+            "caption": "Random photo I found on Google",
+            "src": "/google/random.jpg",
+          },
+          Object {
+            "caption": "Funny image from Google",
+            "src": "/google/funny.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "all",
+          "right",
+          "skills",
+        ]
+      }
+      title="Something"
+    />
+  </div>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="grey"
+      description="Something archived"
+      id="else"
+      onOpen={[Function]}
+      period="2009"
+      photos={
+        Array [
+          Object {
+            "caption": "Low quality photo",
+            "src": "/quality.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "all",
+          "wrong",
+          "skills",
+        ]
+      }
+      title="Else"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Hide older
+    </button>
+  </div>
+  <h2>
+    Non-commercial / Open-source
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="white"
+      description="Pro bono stuff"
+      id="charity"
+      onOpen={[Function]}
+      period="2019"
+      photos={
+        Array [
+          Object {
+            "caption": "Kind people at charity",
+            "src": "/kind.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "only",
+          "pure",
+          "skills",
+        ]
+      }
+      title="Charity work"
+    />
+  </div>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="black"
+      description="Just Another pro bono stuff"
+      id="other-charity"
+      onOpen={[Function]}
+      period="2000"
+      skills={
+        Array [
+          "some",
+          "older",
+          "skills",
+        ]
+      }
+      title="Other charity"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Hide older
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Renders lists with commercial archived items 1`] = `
+<div
+  className="list"
+>
+  <h2>
+    Commercial experience
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="blue"
+      description="Something nice"
+      id="something"
+      onOpen={[Function]}
+      period="2222"
+      photos={
+        Array [
+          Object {
+            "caption": "Random photo I found on Google",
+            "src": "/google/random.jpg",
+          },
+          Object {
+            "caption": "Funny image from Google",
+            "src": "/google/funny.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "all",
+          "right",
+          "skills",
+        ]
+      }
+      title="Something"
+    />
+  </div>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="grey"
+      description="Something archived"
+      id="else"
+      onOpen={[Function]}
+      period="2009"
+      photos={
+        Array [
+          Object {
+            "caption": "Low quality photo",
+            "src": "/quality.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "all",
+          "wrong",
+          "skills",
+        ]
+      }
+      title="Else"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Hide older
+    </button>
+  </div>
+  <h2>
+    Non-commercial / Open-source
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="white"
+      description="Pro bono stuff"
+      id="charity"
+      onOpen={[Function]}
+      period="2019"
+      photos={
+        Array [
+          Object {
+            "caption": "Kind people at charity",
+            "src": "/kind.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "only",
+          "pure",
+          "skills",
+        ]
+      }
+      title="Charity work"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Show older
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Renders lists with noncommercial archived items 1`] = `
+<div
+  className="list"
+>
+  <h2>
+    Commercial experience
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="blue"
+      description="Something nice"
+      id="something"
+      onOpen={[Function]}
+      period="2222"
+      photos={
+        Array [
+          Object {
+            "caption": "Random photo I found on Google",
+            "src": "/google/random.jpg",
+          },
+          Object {
+            "caption": "Funny image from Google",
+            "src": "/google/funny.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "all",
+          "right",
+          "skills",
+        ]
+      }
+      title="Something"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Show older
+    </button>
+  </div>
+  <h2>
+    Non-commercial / Open-source
+  </h2>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="white"
+      description="Pro bono stuff"
+      id="charity"
+      onOpen={[Function]}
+      period="2019"
+      photos={
+        Array [
+          Object {
+            "caption": "Kind people at charity",
+            "src": "/kind.jpg",
+          },
+        ]
+      }
+      skills={
+        Array [
+          "only",
+          "pure",
+          "skills",
+        ]
+      }
+      title="Charity work"
+    />
+  </div>
+  <div
+    className="item is-half"
+  >
+    <Tile
+      color="black"
+      description="Just Another pro bono stuff"
+      id="other-charity"
+      onOpen={[Function]}
+      period="2000"
+      skills={
+        Array [
+          "some",
+          "older",
+          "skills",
+        ]
+      }
+      title="Other charity"
+    />
+  </div>
+  <div
+    className="controls aligned-center"
+  >
+    <button
+      className="button button-clear"
+      onClick={[Function]}
+    >
+      Hide older
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,113 @@
+body, button, input, select, textarea {
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.5em;
+}
+
+body {
+    background: linear-gradient(45deg, darken($light, 1), $light);
+}
+
+a {
+    text-decoration: none;
+    color: #2196F3;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.button {
+    background: transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $dark;
+    padding: 16px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.button-outline {
+        border: 2px solid $dark;
+        border-radius: 4px;
+
+        &:hover {
+            background: $dark;
+            color: $light;
+        }
+    }
+
+    &.button-solid {
+        border: 2px solid $dark;
+        border-radius: 4px;
+        background: $dark;
+        color: $light;
+
+        &:hover {
+            background: $light;
+            color: $dark;
+        }
+    }
+
+    &.button-clear {
+        border: 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typography {
+    h1, h2, h3, h4 {
+        line-height: 1.5em;
+        margin: 16px 0;
+    }
+
+    h1 {
+        font-size: 2em;
+        font-weight: lighter;
+    }
+
+    h2 {
+        font-size: 1.75em;
+        font-weight: lighter;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        font-weight: lighter;
+    }
+
+    h4 {
+        font-size: 1.25em;
+        font-weight: lighter;
+    }
+
+    b, strong {
+        font-weight: bold;
+    }
+
+    i, em {
+        font-style: italic;
+    }
+
+    li {
+        margin: 8px 0 0 32px;
+    }
+
+    ul li {
+        list-style-type: circle;
+    }
+
+    ol li {
+        list-style-type: decimal;
+    }
+}

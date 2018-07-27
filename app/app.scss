@@ -1,13 +1,24 @@
-$body-background: #fff;
+/**
+ * 3rd party styles
+ */
+@import '../node_modules/reset-css/sass/reset';
 
-@import 'bulma/bulma';
+/**
+ * General styles
+ */
+@import 'Me/styles/colors';
+@import 'Me/styles/animations';
+@import 'Me/styles/core';
 
-@import 'me/styles/overrides';
-@import 'me/styles/colors';
-@import 'me/styles/animations';
+/**
+ * Component styles
+ */
+@import 'Intro/styles/intro';
 
-@import 'intro/styles/intro';
+@import 'List/styles/list';
 
-@import 'tile/styles/tile';
+@import 'Footer/styles/footer';
 
-@import 'detail/styles/detail';
+@import 'Tile/styles/tile';
+
+@import 'Detail/styles/detail';

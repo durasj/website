@@ -1,6 +1,7 @@
 ---
 title: Joinery website
-description: Website redesign for the joinery company
+archived: true
+description: Website redesign for the joinery company.
 size: is-one-third
 color: brown
 period: '2011'

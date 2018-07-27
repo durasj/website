@@ -1,8 +1,9 @@
 ---
 title: Waste management
-description: Marketing enhancements for waste management company
+archived: true
+description: Marketing enhancements for waste management company.
 color: teal
-size: is-half
+size: is-one-third
 period: Q1 2014
 skills: [design, branding, logo, website, marketing]
 ---

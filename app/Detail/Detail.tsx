@@ -1,92 +1,123 @@
-import React from 'react';
-
-import ImageGallery from '../../node_modules/react-image-gallery/build/image-gallery';
+import { LuminousGallery } from 'luminous-lightbox';
+import React, { Component, EventHandler, MouseEvent, ReactElement } from 'react';
 
 import DocumentTitle from 'react-document-title';
 
 import { IProject } from '../Projects';
 
-export default class Detail extends React.Component<{project: IProject}, {}> {
-    protected static propTypes = {
-        project: React.PropTypes.object.isRequired,
-    };
+interface IProps {
+    project: IProject,
+    onClose: () => void,
+}
 
-    private _imageGallery;
-    private images;
+export default class Detail extends Component<IProps, { closing: boolean }> {
+    private handleClosing: EventHandler<MouseEvent<HTMLElement>>;
+    private gallery;
 
-    constructor(props: {project: IProject}) {
+    constructor(props: IProps) {
         super(props);
 
-        if (this.props.project.photos !== undefined) {
-            this.images = this.props.project.photos.map((photo) => {
-                return {
-                    original: photo.src,
-                    thumbnail: photo.src,
-                    originalAlt: photo.caption,
-                    thumbnailAlt: photo.caption,
-                };
-            });
-        }
+        this.state = { closing: false };
+
+        this.handleClosing = this.close.bind(this);
     }
 
-    public render(): React.ReactElement<{project: IProject}> {
-        const skillsList = this.props.project.skills ? this.props.project.skills.join(', ') : undefined;
+    public componentDidMount() {
+        window.scrollTo(0, 0);
+
+        this.gallery = new LuminousGallery(
+            document.querySelectorAll('.gallery a'),
+            {},
+            {
+                caption: (trigger) => (
+                    trigger.querySelector('img').getAttribute('alt')
+                ),
+            },
+        );
+    }
+
+    public componentWillUnmount() {
+        /**
+         * TODO: Workaround till gallery.destroy() is implemented
+         *
+         * Check https://github.com/imgix/luminous/blob/master/src/js/LuminousGallery.js
+         */
+        this.gallery.destroy();
+        this.gallery.luminousInstances.forEach((inst) => inst.destroy());
+    }
+
+    public shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
+
+    public render(): ReactElement<{project: IProject}> {
+        const documentTitle = this.props.project.title + ' | ' + 'Jakub Duras';
+        const skillsList = this.props.project.skills ? (
+            this.props.project.skills.map(
+                (skill) => <span key={skill} className="skill">{skill}</span>,
+            )
+        ) : undefined;
         const period = this.props.project.period ? (
-            <div className="period">Made in: {this.props.project.period}</div>
+            <div className="period">{this.props.project.period}</div>
         ) : undefined;
         const skills = skillsList ? (
-            <div>
-                Skills learned/practised: <span className="skills">{skillsList}</span>
+            <div className="skills">
+                {skillsList}
             </div>
         ) : undefined;
-        const gallery = this.images !== undefined ? (
-            <ImageGallery
-                ref={(i) => this._imageGallery = i}
-                items={this.images}
-                showNav={false}
-                showPlayButton={false}
-            />
+        const photos = this.props.project.photos;
+        const gallery = photos !== undefined ? (
+            photos.map(
+                (photo) => (
+                    <a key={photo.src} href={photo.src}>
+                        <img src={photo.src} alt={photo.caption} />
+                    </a>
+                ),
+            )
+        ) : undefined;
+        const link = this.props.project.link ? (
+            <a
+                href={this.props.project.link}
+                className="link button button-outline"
+            >{this.props.project.linkLabel}</a>
         ) : undefined;
 
         return (
-            <div id="detail">
-                <div className={"section is-" + (this.props.project.color || 'bluegrey')}>
-                    <div className="container">
-                        <div className="columns is-mobile">
-                            <div className="column">
-                                <DocumentTitle title={this.props.project.title + ' | ' + 'Jakub Duras'} />
-                                <h1 className="title is-3">{this.props.project.title}</h1>
-                                <h2 className="subtitle">{this.props.project.description}</h2>
-                            </div>
-                            <div className="column is-narrow">
-                                <span className="close" onClick={this.close.bind(this)}>&times;</span>
-                            </div>
-                        </div>
+            <div className={"detail" + (this.state.closing ? ' closing' : '')}>
+                <div className="header">
+                    <div>
+                        <DocumentTitle title={documentTitle} />
+                        <h1 className="title">{this.props.project.title}</h1>
                     </div>
+
+                    <span className="close" onClick={this.handleClosing}>&times;</span>
                 </div>
-                <div className="section">
-                    <div className="container">
-                        <div className="columns">
-                            <div
-                                className="column content"
-                                dangerouslySetInnerHTML={{__html: this.props.project.content}}
-                            />
-                            <div className="column is-one-quarter meta">
-                                {period}
-
-                                {skills}
-                            </div>
-                        </div>
-
+                <div className="body">
+                    <div className="gallery">
                         {gallery}
+                    </div>
+
+                    <div className="content">
+                        <h2>Description</h2>
+                        <div
+                            className="typography"
+                            dangerouslySetInnerHTML={{__html: this.props.project.content}}
+                        />
+                        {skills}
+
+                        <div className="bottom">
+                            {link}
+                            {period}
+                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 
-    protected close() {
-        history.pushState({}, '', '/');
-        dispatchEvent(new Event('popstate'));
+    private close() {
+        this.setState({ closing: true });
+
+        setTimeout(this.props.onClose, 350);
     }
 }

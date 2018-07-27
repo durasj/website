@@ -1,20 +1,31 @@
 ---
 title: Waste Management Application
-description: Used by drivers to collect waste from thousand of companies
+archived: true
+description: Used by drivers to collect waste from thousand of companies.
 color: teal
 period: 2016-2017
-animation: moveBackgroundDown
-skills: [php, sql, linux, administration, rest, api, git, html, css, js, angularjs, cordova, ionic, jquery]
+skills: [php, sql, ionic, angularjs, cordova, linux, administration, rest, api, git, js, jquery, gulp]
 ---
 
+### Problem
+
+The company was missing a centralized control over the waste collections. That lead to occasional problems with late collections, underutilized vehicles, and other issues. The application had to:
+
+1. Simplify notification of drivers about the new waste
+2. Lower the effort needed for communication and reservation
+3. Enforce collection of the waste
+4. Provide an overview and collect performance data
+
+### Solution
+
 Consists of two parts:
-  - Web Application
-  - Mobile Application
+- Web Application
+- Mobile Application
 
-## Web Application
+**Web Application**
 
-Used to manage listing of upcoming waste collections.
+Used to manage upcoming waste collections.
 
-## Mobile Application
+**Mobile Application**
 
-Uses REST API to communicate with the server and allows drivers to import waste location to navigation on Android devices. Used by tens of drivers to collect waste from thousand of companies.
+Uses REST API to communicate with the server. Allows drivers to import waste location to navigation on Android devices. Used by tens of drivers to collect waste from more than thousand of companies.

@@ -1,3 +1,7 @@
+$light: #fff;
+$dark: #202124;
+$primary: #2196F3;
+
 $colors:    (red   #F44336 #fff), 
             (pink   #E91E63 #fff),
             (purple #9C27B0 #fff),
@@ -25,12 +29,12 @@ $colors:    (red   #F44336 #fff),
     $bg-color: nth($color, 2);
     $content-color: nth($color, 3);
 
-    .section.is-#{$color-name} {
-        background-color: rgba($bg-color, 0.9);
+    .background-is-#{$color-name} {
+        background-color: $bg-color;
         color: $content-color;
+    }
 
-        h1.title, h2.subtitle, span {
-            color: $content-color;
-        }
+    .color-is-#{$color-name} {
+        background-color: $bg-color;
     }
 }

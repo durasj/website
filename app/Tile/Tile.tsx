@@ -1,45 +1,42 @@
-import React from "react";
+import React, { Component, EventHandler, MouseEvent, ReactElement, RefObject } from 'react';
 
 interface ITileProps {
-    id: string,
-    title: string,
-    color?: string,
-    description?: string,
-    period?: string,
-    // tslint:disable-next-line:semicolon
-    skills?: string[],
-    photos?: Array<{src: string, caption: string}>,
-    animation?: string,
-    onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>
+    id: string;
+    title: string;
+    color?: string;
+    description?: string;
+    period?: string;
+    skills?: string[];
+    photos?: Array<{src: string, caption: string}>;
+    onOpen: () => void;
 };
 
-export default class Tile extends React.Component<ITileProps, {}> {
-    protected static propTypes = {
-        id: React.PropTypes.string.isRequired,
-        title: React.PropTypes.string.isRequired,
-        color: React.PropTypes.string,
-        description: React.PropTypes.string,
-        period: React.PropTypes.string,
-        skills: React.PropTypes.array,
-        photos: React.PropTypes.array,
-        animation: React.PropTypes.string,
-    };
+export default class Tile extends Component<ITileProps, {
+    opening: 'called' | 'animating',
+}> {
+    private handleOpening: EventHandler<MouseEvent<HTMLElement>>;
+    private tileRef: RefObject<HTMLAnchorElement>;
 
-    protected static defaultProps = {
-        color: "bluegrey",
-        animation: "backgroundZoomOut",
-    };
-
-    constructor(props: ITileProps, context?: any) {
+    constructor(props: ITileProps) {
         super(props);
+
+        this.state = {
+            opening: null,
+        };
+        this.handleOpening = this.openTile.bind(this);
+        this.tileRef = React.createRef();
     }
 
-    public render(): React.ReactElement<ITileProps> {
+    public shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
+
+    public render(): ReactElement<ITileProps> {
         const tileColorCl   = "is-" + this.props.color;
-        const animationCl   = "an-" + this.props.animation;
         const description   = this.props.description ? <p>{this.props.description}</p> : "";
-        const period        = this.props.period ? <span className="period">{this.props.period}</span> : "";
-        const classes         = ["tile", tileColorCl, animationCl];
+        const period        = this.props.period ? this.props.period : "";
+        const skills        = this.props.skills ? '#' + this.props.skills.join(' #') : "";
+        const classes       = ["tile", tileColorCl];
         let photo;
 
         if (this.props.photos) {
@@ -50,22 +47,51 @@ export default class Tile extends React.Component<ITileProps, {}> {
             photo = <div className="photo" style={style} />;
         }
 
+        // Animation code
+        let ghostStyle;
+        if (this.state.opening) {
+            const tileEl = this.tileRef.current;
+            const tileBoundingRect = tileEl.getBoundingClientRect();
+            ghostStyle = {
+                width: tileBoundingRect.width,
+                height: tileBoundingRect.height,
+                top: tileBoundingRect.top,
+                left: tileBoundingRect.left,
+            };
+
+            if (this.state.opening === 'animating') {
+                const scaleX = (document.body.clientWidth + 16) / tileBoundingRect.width;
+                const scaleY = (document.body.clientHeight + 16) / tileBoundingRect.height;
+                const translateX = - ((tileBoundingRect.left) + 8);
+                const translateY = - ((tileBoundingRect.top) + 8);
+                ghostStyle.transform = `matrix(${scaleX}, 0, 0, ${scaleY}, ${translateX}, ${translateY})`;
+            }
+        }
+        const ghostElement =
+            this.state.opening ? <div className={'tile-ghost ' + tileColorCl} style={ghostStyle} /> : '';
+
         return (
-            <a href={this.props.id} onClick={this.openTile.bind(this)}>
-                <article className={classes.join(" ")}>
+            <a href={'/' + this.props.id} onClick={this.handleOpening}>
+                <article ref={this.tileRef} className={classes.join(' ')}>
                     {photo}
                     <div className="content">
-                        <h2 className="title">{this.props.title}{period}</h2>
+                        <h3 className="title">{this.props.title}</h3>
+                        <span className="meta">{period} {skills}</span>
                         {description}
                     </div>
                 </article>
+                {ghostElement}
             </a>
         );
     }
 
     private openTile(ev) {
         ev.preventDefault();
-        history.pushState({}, this.props.title, '/' + this.props.id);
-        dispatchEvent(new Event('popstate'));
+
+        this.setState({ opening: 'called' });
+
+        setTimeout(() => this.setState({ opening: 'animating' }));
+
+        setTimeout(this.props.onOpen, 300);
     }
 }

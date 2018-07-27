@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Intro properly 1`] = `
+<div
+  className="intro"
+>
+  <img
+    alt="Lambda Jakub Duras logo"
+    height="160px"
+    src="icons/favicon.svg"
+    width="160px"
+  />
+  <div
+    className="introduction"
+  >
+    Hi, I am 
+    <h1>
+      Jakub, Web developer
+    </h1>
+  </div>
+</div>
+`;

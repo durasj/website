@@ -1,3 +1,9 @@
-@import "animatewithsass/_properties";
-@import "animatewithsass/_fading-entrances/_fadeInUp";
-@import "animatewithsass/_fading-exits/_fadeOut";
+@keyframes fadeIn {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

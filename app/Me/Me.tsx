@@ -1,100 +1,147 @@
-import React from 'react';
+import React, { Component, ReactElement } from 'react';
 
 import Detail from '../Detail';
+import Footer from '../Footer';
 import Intro from '../Intro';
-import Tile from '../Tile';
+import List from '../List';
 
 import { Projects } from '../Projects';
 
-export default class Me extends React.Component<{}, {opened: string}> {
+interface IState {
+    opened: string,
+    openedFromList: boolean,
+    olderCommercial: boolean,
+    olderNoncommercial: boolean,
+}
+
+export default class Me extends Component<{}, IState> {
+    private handleRouting: EventListener;
+    private handleToggleOlderCommercial;
+    private handleToggleOlderNoncommercial;
+    private handleOpening;
+    private handleClosing;
+
     constructor(props: {}) {
         super(props);
 
+        this.handleToggleOlderCommercial = this.toggleOlder.bind(this, true);
+        this.handleToggleOlderNoncommercial = this.toggleOlder.bind(this, false);
+        this.handleRouting = this.routing.bind(this);
+        this.handleOpening = this.openProject.bind(this);
+        this.handleClosing = this.closeDetail.bind(this);
+
         this.routing(true);
-        setTimeout(() => {
-            addEventListener('popstate', this.routing.bind(this));
-        });
     }
 
-    public render(): React.ReactElement<{}> {
-        const tiles = Projects.map((project, index) => {
-            const classes = ['column', (typeof project.size !== 'undefined' ? project.size : 'is-half')];
+    public componentWillMount() {
+        window.addEventListener('popstate', this.handleRouting);
+    }
 
-            return (
-                <div key={index} className={classes.join(' ')}>
-                    <Tile
-                        id={project.id}
-                        title={project.title}
-                        color={project.color}
-                        description={project.description}
-                        period={project.period}
-                        skills={project.skills}
-                        photos={project.photos}
-                        animation={project.animation}
-                    >
-                        {project.content}
-                    </Tile>
-                </div>
-            );
-        });
+    public componentWillUnmount() {
+        window.removeEventListener('popstate', this.handleRouting);
+    }
 
+    public shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState !== this.state;
+    }
+
+    public render(): ReactElement<{}> {
         const bodyContent = (this.state.opened === undefined) ? (
-            <div className="hero-body">
-                <div className="container">
-                    <div className="columns is-multiline is-gapless">
-                        {tiles}
-                    </div>
-                </div>
-            </div>
+            <List
+                projects={Projects}
+                olderCommercial={this.state.olderCommercial}
+                olderNoncommercial={this.state.olderNoncommercial}
+                onToggleOlderCommercial={this.handleToggleOlderCommercial}
+                onToggleOlderNoncommercial={this.handleToggleOlderNoncommercial}
+                onOpen={this.handleOpening}
+            />
         ) : (
-            <Detail project={this.getOpenedProject()}/>
+            <Detail
+                project={this.getOpenedProject()}
+                onClose={this.handleClosing}
+            />
         );
 
         return (
-            <section className={'hero is-fullheight' + (!this.state.opened ? ' is-light ' : ' ') + 'is-bold'}>
-                {this.state.opened === undefined ? <Intro /> : ''}
+            <div className='container'>
+                {this.state.opened === undefined ? <Intro /> : null}
+
                 {bodyContent}
 
-                <div className="hero-foot has-text-centered">
-                    Jakub Duras, Web developer, jakub@duras.me
-                </div>
-            </section>
+                <Footer />
+            </div>
         );
     }
 
     private routing(initial = false) {
-        const openedId = this.currentlyOpenedFromUrl();
+        let openedId = this.currentlyOpenedFromUrl();
 
         if (openedId !== undefined) {
             const openedProject = Projects.find((project) => project.id === openedId);
 
             if (openedProject === undefined) {
-                location.href = '/404.html';
+                location.assign('/404.html');
+                openedId = undefined;
             }
         }
 
         if (initial === true) {
             this.state = {
                 opened: openedId,
+                openedFromList: false,
+                olderCommercial: false,
+                olderNoncommercial: false,
             };
         } else {
             if (openedId !== this.state.opened) {
-                this.setState({ opened: openedId });
+                this.setState({
+                    ...this.state,
+                    opened: openedId,
+                    openedFromList: !this.state.opened && openedId !== undefined,
+                });
             }
         }
     }
 
     private currentlyOpenedFromUrl() {
-        const projectId = location.pathname.substr(1) || location.hash.substr(1);
+        const projectId = location.pathname.substr(1);
 
         return (projectId.length > 0) ? projectId : undefined;
     }
 
-    private open(tileId: string) {
-        location.hash = '#' + tileId;
-    }
-
     private getOpenedProject() {
         return Projects.find((project) => project.id === this.state.opened);
+    }
+
+    private toggleOlder(commercial: boolean) {
+        if (commercial) {
+            this.setState(
+                { ...this.state, olderCommercial: !this.state.olderCommercial },
+            );
+        } else {
+            this.setState(
+                { ...this.state, olderNoncommercial: !this.state.olderNoncommercial },
+            );
+        }
+    }
+
+    private openProject(projectId) {
+        const openedProject = Projects.find((project) => project.id === projectId);
+
+        history.pushState(
+            {},
+            openedProject.title,
+            '/' + openedProject.id,
+        );
+        this.routing();
+    }
+
+    private closeDetail() {
+        if (this.state.openedFromList) {
+            history.back();
+        } else {
+            history.pushState({}, '', '/');
+            this.routing();
+        }
     }
 }

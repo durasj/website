@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { PureComponent, ReactElement } from 'react';
 
 import DocumentTitle from 'react-document-title';
 
-export default class Intro extends React.Component<{}, {}> {
+export default class Intro extends PureComponent<{}, {}> {
     constructor(props: {}) {
         super(props);
     }
 
-    public render(): React.ReactElement<{}> {
+    public render(): ReactElement<{}> {
         return (
-            <div id="intro">
+            <div className="intro">
                 <DocumentTitle title="Jakub Duras - Mobile and Web App Developer" />
-                <div>
+                <img src="icons/favicon.svg" alt="Lambda Jakub Duras logo" width="160px" height="160px" />
+                <div className="introduction">
                     Hi, I am <h1>Jakub, Web developer</h1>
                 </div>
             </div>

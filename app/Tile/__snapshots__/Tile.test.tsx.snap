@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders barebones tile properly 1`] = `
+<a
+  href="/something"
+  onClick={[Function]}
+>
+  <article
+    className="tile is-undefined"
+  >
+    <div
+      className="content"
+    >
+      <h3
+        className="title"
+      >
+        Something
+      </h3>
+      <span
+        className="meta"
+      >
+        
+         
+        
+      </span>
+      
+    </div>
+  </article>
+  
+</a>
+`;
+
+exports[`Renders full-fledged tile properly 1`] = `
+<a
+  href="/something"
+  onClick={[Function]}
+>
+  <article
+    className="tile is-blue tile-photo"
+  >
+    <div
+      className="photo"
+      style={
+        Object {
+          "backgroundImage": "url(/google/random.jpg)",
+        }
+      }
+    />
+    <div
+      className="content"
+    >
+      <h3
+        className="title"
+      >
+        Something
+      </h3>
+      <span
+        className="meta"
+      >
+        2222
+         
+        #all #right #skills
+      </span>
+      <p>
+        Something nice
+      </p>
+    </div>
+  </article>
+  
+</a>
+`;

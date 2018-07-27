@@ -1,46 +1,132 @@
-@import "react-image-gallery/styles/scss/image-gallery";
+@import './luminous';
 
-#detail {
-    @include fadeInUp();
+.detail {
+    width: 100%;
+    max-width: 1200px;
+    margin: 8px;
+    transition: opacity 0.35s;
+    animation: fadeIn 0.5s;
 
-    h1 {
-        display: inline-block;
-    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 8px 8px 0 0;
+        border-bottom: 1px dotted darken($light, 20);
 
-    .close {
-        font-size: 40px;
-        line-height: 40px;
-        cursor: pointer;
-        transition: opacity 0.25s ease-in-out;
+        h1 {
+            font-size: 2em;
+            font-weight: lighter;
+            line-height: 1.5em;
+        }
 
-        &:hover {
-            opacity: 0.5;
+        .close {
+            font-size: 40px;
+            line-height: 40px;
+            padding: 0 8px;
+            cursor: pointer;
+            transition: opacity 0.25s ease-in-out;
+
+            &:hover {
+                opacity: 0.5;
+            }
         }
     }
 
-    .section > .container > .columns {
-        align-items: flex-start;
+    .body, .header {
+        padding: 24px;
     }
 
-    .meta {
-        background-color: $light;
+    .body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
     }
 
     .skills {
-        font-style: italic;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 24px 0 16px;
+
+        .skill {
+            font-style: italic;
+            border-radius: 16px;
+            line-height: 1em;
+            vertical-align: middle;
+            margin-bottom: 8px;
+
+            &:not(:last-of-type) {
+                margin-right: 8px;
+            }
+
+            &:before {
+                content: '#';
+            }
+        }
     }
 
-    .image-gallery {
-        margin-top: 36px;
+    .bottom {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: space-between;
+        align-items: center;
 
-        .image-gallery-image {
-            display: flex;
-            justify-content: center;
+        .period {
+            text-align: right;
+            font-size: 3em;
+            line-height: 1em;
+            font-weight: lighter;
+            margin: 24px 0;
+            color: lighten($dark, 50);
+        }
+    }
 
-            img {
-                width: auto;
-                max-height: 600px;
-            }
+    .gallery, .content {
+        padding: 24px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            cursor: zoom-in;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 16px 8px;
+            box-shadow: 0 4px 48px rgba(0, 0 ,0 , 0.3);
+        }
+    }
+
+    .content {
+        h2 {
+            font-size: 1.75em;
+            font-weight: lighter;
+            line-height: 1.5em;
+        }
+    }
+
+    &.closing {
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .detail .gallery, .detail .content {
+        max-width: 50%;
+    }
+
+    .detail .gallery {
+        overflow: hidden;
+
+        img {
+            max-width: 520px;
+            max-height: 520px;
         }
     }
 }
