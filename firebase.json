@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "/",
+    "public": "/dist",
     "rewrites": [
       {
         "source": "**",
@@ -9,15 +9,8 @@
     ],
     "ignore": [
       "**/.*",
-      "*.json",
       "**/*.log",
-      "**/*.stackdump",
-      "**/node_modules/**",
-      "app",
-      "cypress",
-      "testing",
-      "gulpfile.js",
-      "README.md"
+      "**/*.stackdump"
     ],
     "headers": [
       {
