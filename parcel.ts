@@ -25,6 +25,7 @@ const options = {
     outFile: 'index.html',
     logLevel: 3, // 3 = log everything, 2 = log warnings & errors, 1 = log errors
     detailedReport: true,
+    contentHash: false,
 };
 
 async function runBundle() {
