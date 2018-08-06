@@ -5,7 +5,6 @@ Repo for my simple personal portfolio hosted at duras.me. There isn't a lot to s
 
 |- content/ - Projects - each in its own dir with content.md nad photos subdir
 |- cypress/ - Cypress E2E test files.
-|- icons/   - Logo and icon related files.
 |- src/     - Source code - scss and ts(x) - each component in its own dir incl. unit test
 |- static/  - Static files copied as-is to dist/
 |- testing/ - Files related to unit testing like mocks and coverage.
