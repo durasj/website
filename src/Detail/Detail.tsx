@@ -37,13 +37,7 @@ export default class Detail extends Component<IProps, { closing: boolean }> {
     }
 
     public componentWillUnmount() {
-        /**
-         * TODO: Workaround till gallery.destroy() is implemented
-         *
-         * Check https://github.com/imgix/luminous/blob/master/src/js/LuminousGallery.js
-         */
         this.gallery.destroy();
-        this.gallery.luminousInstances.forEach((inst) => inst.destroy());
     }
 
     public shouldComponentUpdate(nextProps, nextState) {

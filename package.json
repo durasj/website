@@ -9,7 +9,7 @@
   "dependencies": {
     "browserify": "^16.2.2",
     "core-js": "^2.5.7",
-    "luminous-lightbox": "^2.1.1",
+    "luminous-lightbox": "^2.2.0",
     "react": "^16.4.1",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.4.1",
