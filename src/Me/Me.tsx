@@ -34,10 +34,18 @@ export default class Me extends Component<{}, IState> {
     }
 
     public componentWillMount() {
+        if (typeof window === 'undefined') {
+            return; // SSR support
+        }
+
         window.addEventListener('popstate', this.handleRouting);
     }
 
     public componentWillUnmount() {
+        if (typeof window === 'undefined') {
+            return; // SSR support
+        }
+
         window.removeEventListener('popstate', this.handleRouting);
     }
 
@@ -104,6 +112,10 @@ export default class Me extends Component<{}, IState> {
     }
 
     private currentlyOpenedFromUrl() {
+        if (typeof window === 'undefined') {
+            return; // SSR support
+        }
+
         const projectId = location.pathname.substr(1);
 
         return (projectId.length > 0) ? projectId : undefined;

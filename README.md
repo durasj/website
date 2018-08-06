@@ -2,10 +2,12 @@
 Repo for my simple personal portfolio hosted at duras.me. There isn't a lot to see, but you are free to look around.
 
 ```
-|- app/     - Source code - scss and ts(x) - each component in its own dir incl. unit test
+
 |- content/ - Projects - each in its own dir with content.md nad photos subdir
 |- cypress/ - Cypress E2E test files.
 |- icons/   - Logo and icon related files.
+|- src/     - Source code - scss and ts(x) - each component in its own dir incl. unit test
+|- static/  - Static files copied as-is to dist/
 |- testing/ - Files related to unit testing like mocks and coverage.
 |- *.*      - Configuration files and dist output.
 ```
@@ -20,9 +22,6 @@ Repo for my simple personal portfolio hosted at duras.me. There isn't a lot to s
 
 ## TODO
 - Break down the Me.tsx (move the routing and global imports like Projects to app.tsx?)
-- Rename app/ to src/
-- Replace gulp & browserify with parceljs
-- Deploy new dist/ and not root
 - Think of cleaner way to handle animations
 - Better, optimized images (raw images with optimization at build time, better serving).
 

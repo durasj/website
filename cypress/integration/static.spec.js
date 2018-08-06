@@ -1,7 +1,7 @@
 const projects = require('../../app/content.json');
 
-const email = atob('amFrdWJAZHVyYXMubWU=');
-const number = atob('KzQyMSA5MTcgNDMyIDk3NA==');
+const email = String.fromCharCode(106, 97, 107, 117, 98, 64, 100, 117, 114, 97, 115, 46, 109, 101);
+const number = String.fromCharCode(43, 52, 50, 49, 32, 57, 49, 55, 32, 52, 51, 50, 32, 57, 55, 52);
 const githubLink = 'https://github.com/durasj';
 const githubHandler = '@durasj';
 const location = 'Slovakia';

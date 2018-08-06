@@ -6,8 +6,8 @@ export default class Footer extends PureComponent<{}, {}> {
     }
 
     public render(): ReactElement<{}> {
-        const email = atob('amFrdWJAZHVyYXMubWU=');
-        const mobileNumber = atob('KzQyMSA5MTcgNDMyIDk3NA==');
+        const email = String.fromCharCode(106, 97, 107, 117, 98, 64, 100, 117, 114, 97, 115, 46, 109, 101);
+        const mobileNumber = String.fromCharCode(43, 52, 50, 49, 32, 57, 49, 55, 32, 52, 51, 50, 32, 57, 55, 52);
 
         return (
             <footer>
