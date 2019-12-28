@@ -90,6 +90,7 @@ async function runBundle() {
         const server = http.createServer((request, response) => {
             return handler(request, response, {
                 public: 'dist',
+                publicUrl: '/',
                 rewrites: [
                     { source: '/*', destination: '/index.html' },
                 ],
