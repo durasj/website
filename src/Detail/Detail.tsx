@@ -1,8 +1,7 @@
 import { LuminousGallery } from 'luminous-lightbox';
 import React, { Component, EventHandler, MouseEvent, ReactElement } from 'react';
 
-import DocumentTitle from 'react-document-title';
-
+import DocumentTitle from '../DocumentTitle';
 import { IProject } from '../Projects';
 
 interface IProps {

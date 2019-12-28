@@ -1,6 +1,6 @@
 import React, { PureComponent, ReactElement } from 'react';
 
-import DocumentTitle from 'react-document-title';
+import DocumentTitle from '../DocumentTitle';
 
 export default class Intro extends PureComponent<{}, {}> {
     constructor(props: {}) {
