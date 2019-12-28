@@ -13,10 +13,18 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: npm install, build, and test
+
+    - name: Run npm install, build, and test
       run: |
         npm ci
         npm run build
         npm test
       env:
         CI: true
+
+    - name: Test e2e using Cypress
+      uses: cypress-io/github-action@v1
+      with:
+        build: npm run build
+        start: npm start
+        wait-on: http://localhost:3333
