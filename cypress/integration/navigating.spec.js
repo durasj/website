@@ -1,4 +1,4 @@
-const projects = require('../../app/content.json');
+const projects = require('../../src/content.json');
 
 describe('Navigating projects', () => {
     it('Is possible by having a list of projects on the homepage', () => {

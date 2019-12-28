@@ -7,7 +7,7 @@ import List from '../List';
 
 it('Renders lists', () => {
     const projects = mockProjects;
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
 
     const output = renderer.render(
         <List
@@ -25,7 +25,7 @@ it('Renders lists', () => {
 
 it('Renders lists with commercial archived items', () => {
     const projects = mockProjects;
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
 
     const output = renderer.render(
         <List
@@ -43,7 +43,7 @@ it('Renders lists with commercial archived items', () => {
 
 it('Renders lists with noncommercial archived items', () => {
     const projects = mockProjects;
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
 
     const output = renderer.render(
         <List
@@ -61,7 +61,7 @@ it('Renders lists with noncommercial archived items', () => {
 
 it('Renders lists with all archived items', () => {
     const projects = mockProjects;
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
 
     const output = renderer.render(
         <List

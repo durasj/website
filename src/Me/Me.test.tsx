@@ -11,7 +11,7 @@ declare var jsdom: IJSDOM.JSDOM;
 
 it('Renders without project opened', () => {
     window.location.replace = jest.fn();
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
 
     const output = renderer.render(
         <Me />,
@@ -23,7 +23,7 @@ it('Renders without project opened', () => {
 it('Renders with project opened', () => {
     const project = mockProjects[0];
     window.scrollTo = jest.fn();
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
     jsdom.reconfigure({ url: 'http://localhost/' + project.id});
 
     const output = renderer.render(
@@ -35,7 +35,7 @@ it('Renders with project opened', () => {
 
 it('Redirects to 404 if project was not found', () => {
     window.location.assign = jest.fn();
-    const renderer = new ShallowRenderer();
+    const renderer = ShallowRenderer.createRenderer();
     jsdom.reconfigure({ url: 'http://localhost/404' });
 
     renderer.render(

@@ -20,6 +20,7 @@ Repo for my simple personal portfolio hosted at duras.me. There isn't a lot to s
 - ... and kudos to many others, see [package.json](https://github.com/durasj/website/blob/master/package.json)
 
 ## TODO
+- Change open project animation so that it gets opaque as it expands
 - Break down the Me.tsx (move the routing and global imports like Projects to app.tsx?)
 - Think of cleaner way to handle animations
 - Better, optimized images (raw images with optimization at build time, better serving).

@@ -1,4 +1,4 @@
-const projects = require('../../app/content.json');
+const projects = require('../../src/content.json');
 
 const email = String.fromCharCode(106, 97, 107, 117, 98, 64, 100, 117, 114, 97, 115, 46, 109, 101);
 const number = String.fromCharCode(43, 52, 50, 49, 32, 57, 49, 55, 32, 52, 51, 50, 32, 57, 55, 52);

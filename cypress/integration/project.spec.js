@@ -1,4 +1,4 @@
-const projects = require('../../app/content.json');
+const projects = require('../../src/content.json');
 
 describe('Project', function() {
     it('Contains correct title', function() {

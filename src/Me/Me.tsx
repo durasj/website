@@ -33,7 +33,7 @@ export default class Me extends Component<{}, IState> {
         this.routing(true);
     }
 
-    public componentWillMount() {
+    public componentDidMount() {
         if (typeof window === 'undefined') {
             return; // SSR support
         }

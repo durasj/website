@@ -1,7 +1,7 @@
 import fm from 'front-matter';
 import fs from 'fs';
 import md from 'marked';
-import sm from 'sitemap';
+import createSitemap from 'sitemap';
 
 export default function generateContent() {
     const rootDir = './';
@@ -51,7 +51,7 @@ export default function generateContent() {
     fs.writeFileSync(srcDir + '/content.json', JSON.stringify(projects));
 
     // Sitemap
-    const sitemap = sm.createSitemap ({
+    const sitemap = createSitemap({
         hostname: 'https://duras.me',
         urls: projects.map((project) => {
             const url = {
