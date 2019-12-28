@@ -23,6 +23,7 @@ const entryFile = path.join(__dirname, './src/index.html');
 const options = {
     outDir: './dist',
     outFile: 'index.html',
+    publicUrl: '/',
     logLevel: 3, // 3 = log everything, 2 = log warnings & errors, 1 = log errors
     detailedReport: true,
     contentHash: false,
@@ -90,7 +91,6 @@ async function runBundle() {
         const server = http.createServer((request, response) => {
             return handler(request, response, {
                 public: 'dist',
-                publicUrl: '/',
                 rewrites: [
                     { source: '/*', destination: '/index.html' },
                 ],
