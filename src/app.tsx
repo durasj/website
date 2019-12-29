@@ -1,4 +1,5 @@
 import 'core-js/features/array';
+import 'core-js/features/object';
 import 'core-js/features/promise';
 
 import React from 'react';
