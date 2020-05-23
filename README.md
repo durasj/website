@@ -22,10 +22,12 @@ Content is managed as directory structure with markdown files and photos.
 
 ## TODO
 
-- Redesign with various polygons as cards, simple transitions.
-- Rewrite to modern react with hooks.
-- Drop scss?
-- Break down the Me.tsx (move the routing and global imports like Projects to app.tsx?).
+- Consider rewrite to [AMP](https://amp.dev/).
+- Redesign with various polygons as cards, simple transitions (if I don't want AMP).
+- Rewrite to modern react with hooks (if I don't want AMP).
+- Drop scss (if I don't want AMP)?
+- Break down the Me.tsx (move the routing and global imports like Projects to app.tsx?) (if I don't want AMP).
+- Add a proper CV subpage that will be dynamically generated from markdown and available in PDF and DOCX for download.
 
 ## TODO Content Generator
 
@@ -37,3 +39,5 @@ Content is managed as directory structure with markdown files and photos.
 - iERP.ai
 - Octosign
 - Pixea
+- LaserProfile
+- Maybe one item for all IoT side projects?
