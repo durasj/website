@@ -1,4 +1,6 @@
 node_modules
-dist
+public/main.js
+public/main.min.js
 testing/coverage
 cypress/videos
+cypress/screenshots
