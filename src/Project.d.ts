@@ -1,24 +1,22 @@
-import projects from './content.json';
-
-interface IPhoto {
+interface Photo {
     src: string;
     caption: string;
 }
 
-export interface IProject {
+export interface Project {
     id: string,
     title: string,
     type: string | 'commercial' | 'noncommercial',
     archived: boolean,
+    period: string,
     size?: string,
     color?: string,
     description?: string,
-    period?: string,
     skills?: string[],
-    photos?: IPhoto[],
+    photos?: Photo[],
     content?: string,
     link?: string,
     linkLabel?: string,
 }
 
-export const Projects: IProject[] = projects;
+export type Projects = Project[];

@@ -1,0 +1,75 @@
+name: Jakub Duras
+mobile: +421 917 432 974
+email: jakub@duras.me
+web: duras.me
+github: durasj
+linkedin: jduras
+country: Slovakia
+updated: 2020-06-27
+
+summary: |
+  An energetic young professional trying to simplify the world with software.
+  More than five years of experience with software development, architecture, and team leading.
+  Especially interested in proper software engineering and innovative yet usable solutions.
+  Constant learner and open-source enthusiast.
+
+education:
+    - title: Pavol Jozef Šafárik University
+      subtitle: Bachelor's Degree, Applied Informatics - 2016-2020
+      description: |
+        Passed with distinction - weighted study average 1.46/4.<br />
+        Thesis on digital signatures won different categories at a student
+        conference, featured in the press.<br />
+        Completed part-time via blended learning while working full-time.
+
+experience:
+    - title: Software Developer
+      subtitle: Sole Proprietorship - from 2015 - 5+ years
+      responsibilities:
+        - | 
+            Full-stack work on leading global paperless doping controls - MODOC.
+            Designing major parts of the software, helping junior developers, software development using languages like TypeScript or PHP, and libraries like AngularJS, React, Phalcon, or Puppeteer.
+        - | 
+            Leading development of early-stage startup trying to bring artificial intelligence to ERP systems.
+            The technological stack consisting mostly of desktop application powered by Electron and TensorFlow.js, and serverless functions hosted on Amazon Web Services.
+        - | 
+            Software design, implementation, and infrastructure of attendance system and customized Linux payment system used on daily basis by hundreds of users and responsible for millions of euros a year.
+            Created using technologies like JavaScript, PHP, Ansible, Linux, and NTAG® NFC ICs.
+
+probono:
+    - title: Open-Source Software
+      description: |
+        Several open-source projects created and maintained for the
+        community, e.g., Octosign - simple open electronic signature
+        software usable with eID that received local coverage.<br />
+        Contributions to various open-source projects via code,
+        translations, or user support.
+    - title: Website Hosting and Adjusting
+      description: |
+        Hosting tens of different websites and web applications on automated
+        infrastructure.<br />
+        Helping with setup and adjustments of websites for low-income
+        individuals and organizations.
+
+languages:
+    English: Proficient
+    Slovak: Native
+    Russian: Elementary
+
+interests:
+    Academic:
+        - Software engineering
+        - Digital signatures
+        - Blockchain
+    Computers:
+        - Linux servers
+        - Internet of things
+        - Computer hardware
+    Sports:
+        - Cycling
+        - Calisthenics
+        - Ice hockey
+    Other:
+        - Psychology
+        - Economics
+        - String instruments

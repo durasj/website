@@ -1,59 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html ⚡ lang="en-us">
+  <head>
+    <%- include('head.ejs'); %>
 
-        <script type="application/ld+json">
-            {
-                "@context" : "http://schema.org",
-                "@type" : "Person",
-                "name" : "Jakub Ďuraš",
-                "email": "mailto:jakub@duras.me",
-                "jobTitle": "Software developer",
-                "sameAs" : [
-                    "https://www.linkedin.com/in/jduras",
-                    "https://plus.google.com/u/0/+Jakub%C4%8Eura%C5%A1",
-                    "https://github.com/durasj"
-                ]
-            }
-        </script> 
-        <meta name="description" content="Simplifying our life with software. Focused on cross-platform JavaScript development with proper software engineering and usable design. Open-source enthusiast.">
-        <title>Jakub Duras - Software developer</title>
+    <!-- injectcss --><!-- relevant .css is processed and inlined here as style amp-custom --><!-- endinject -->
 
-        <link rel="apple-touch-icon" sizes="180x180" href="../static/icons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" href="../static/icons/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="../static/icons/favicon-16x16.png" sizes="16x16">
-        <link rel="manifest" href="../static/icons/manifest.json">
-        <link rel="mask-icon" href="../static/icons/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="../static/icons/favicon.ico">
-        <meta name="apple-mobile-web-app-title" content="Jakub Duras">
-        <meta name="application-name" content="Jakub Duras">
-        <meta name="msapplication-config" content="../static/icons/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="https://duras.me/" />
+    <meta
+      name="description"
+      content="Simplifying our life with software. Focused on cross-platform JavaScript development with proper software engineering and usable design. Open-source enthusiast."
+    />
+    <title>Jakub Duras - Software Developer</title>
+  </head>
+  <body>
+    <h1 class="h1">Jakub Duras - Software Developer</h1>
 
-        <link rel="stylesheet" type="text/css" href="app.scss">
+    <h2 class="h2">Commercial experience</h2>
 
-        <!-- Matomo -->
-        <script type="text/javascript">
-            var _paq = window._paq || [];
-            _paq.push(['disableCookies']);
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-            var u="//stats.duras.me/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-            })();
-        </script>
-        <!-- End Matomo Code -->
-    </head>
+    <% projects.filter(p => p.type === 'commercial').forEach(function(project) { %>
+    <div>
+      <%=project.title%>
+      <amp-img
+        src="<%=project.photos[0].src%>"
+        alt="<%=project.photos[0].caption%>"
+        height="400"
+        width="800"
+        layout="responsive"
+      ></amp-img>
+    </div>
+    <% }); %>
 
-    <body>
-        <div id="app"></div>
+    <h2 class="h2">Non-commercial / Open-source</h2>
 
-        <script src="app.tsx" defer></script>
-    </body>
+    <% projects.filter(p => p.type === 'noncommercial').forEach(function(project) { %>
+      <div>
+        <%=project.title%>
+        <amp-img
+          src="<%=project.photos[0].src%>"
+          alt="<%=project.photos[0].caption%>"
+          height="400"
+          width="800"
+          layout="responsive"
+        ></amp-img>
+      </div>
+    <% }); %>
+
+    <%- include('footer.ejs'); %>
+  </body>
 </html>

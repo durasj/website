@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title><%= name %> CV</title>
+
+    <style type="text/css">
+      @page {
+        size: A4 portrait;
+        margin: 2cm;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Calisto MT, Bookman Old Style, Bookman, Goudy Old Style,
+          Garamond, Hoefler Text, Bitstream Charter, Georgia, serif;
+        line-height: 1.5rem;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+      #page-wrap {
+        width: 50rem;
+        margin: 1.25rem auto;
+      }
+
+      .u-photo {
+        float: right;
+        margin: 2rem 0 0 0;
+      }
+
+      h1 {
+        margin: 0 0 1rem 0;
+        padding: 0 0 1rem 0;
+        font-size: 2.5rem;
+        font-weight: normal;
+        border-bottom: 1px solid #999;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        margin: 0 0 0.375rem 0;
+        position: relative;
+      }
+
+      h2 span {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-style: italic;
+        font-family: Georgia, Serif;
+        font-size: 1rem;
+        color: #999;
+        font-weight: normal;
+      }
+
+      p {
+        margin: 0 0 1rem 0;
+      }
+
+      a {
+        color: #999;
+        text-decoration: none;
+        border-bottom: 1px dotted #999;
+      }
+
+      a:hover {
+        border-bottom-style: solid;
+        color: black;
+      }
+
+      ul {
+        margin: 0 0 2rem 1rem;
+      }
+
+      .space-between {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #contact-info {
+        margin-bottom: 0.5rem;
+      }
+
+      #objective,
+      #header {
+        width: 38rem;
+        float: left;
+      }
+
+      #objective p {
+        font-family: Georgia, Serif;
+        font-style: italic;
+        text-align: justify;
+        color: #666;
+      }
+
+      dt {
+        font-style: italic;
+        font-weight: bold;
+        font-size: 1.125rem;
+        text-align: right;
+        padding: 0 1.5rem 0 0;
+        width: 6rem;
+        min-height: 2.5rem;
+        float: left;
+      }
+
+      dd {
+        width: 42rem;
+        float: right;
+      }
+
+      dd.clear {
+        float: none;
+        margin: 0;
+        height: 1rem;
+      }
+
+      time {
+        display: block;
+        text-align: center;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="page-wrap">
+      <img alt="Portrait of <%= name %>" class="u-photo" src="<%= photo %>" />
+
+      <div id="header" class="h-card">
+        <!-- Microformats! -->
+
+        <h1 class="p-name"><%= name %></h1>
+
+        <div id="contact-info" class="space-between">
+          <div>
+            Mobile: <span class="u-tel"><%= mobile %></span><br />
+            Email:
+            <a class="u-email" href="mailto:<%= email %>"><%= email %></a><br />
+            Web: <a href="https://<%= web %>" class="u-url"><%= web %></a>
+          </div>
+
+          <div>
+            Github:
+            <a href="https://github.com/<%= github %>" class="u-url"
+              >github.com/<%= github %></a
+            ><br />
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/<%= linkedin %>/" class="u-url"
+              >linkedin.com/in/<%= linkedin %></a
+            ><br />
+            Country: <span class="u-country-name"><%= country %></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="objective">
+        <p><%= summary %></p>
+      </div>
+
+      <div class="clear"></div>
+
+      <dl>
+        <dd class="clear"></dd>
+
+        <dt>Education</dt>
+
+        <% education.forEach(function(item){ %>
+          <dd>
+            <h2>
+              <%= item.title %>
+              <span><%= item.subtitle %></span>
+            </h2>
+            <p>
+              <%- item.description %>
+            </p>
+          </dd>
+
+          <dd class="clear"></dd>
+        <% }); %>
+
+        <dd class="clear"></dd>
+
+        <dt>Experience</dt>
+
+        <% experience.forEach(function(item){ %>
+          <dd>
+            <h2>
+              <%= item.title %>
+              <span><%= item.subtitle %></span>
+            </h2>
+            <ul>
+              <% item.responsibilities.forEach(function(responsibility){ %>
+                <li><%= responsibility %></li>
+              <% }); %>
+            </ul>
+          </dd>
+
+          <dd class="clear"></dd>
+        <% }); %>
+
+        <dt>Pro-bono</dt>
+        <dd>
+          <% probono.forEach(function(item){ %>
+            <h2><%= item.title %></h2>
+            <p>
+              <%- item.description %>
+            </p>
+          <% }); %>
+        </dd>
+
+        <dd class="clear"></dd>
+
+        <dt>Languages</dt>
+        <dd class="space-between">
+          <% Object.entries(languages).forEach(function(item){ %>
+            <div><strong><%= item[0] %></strong>: <%= item[1] %>.</div>
+          <% }); %>
+        </dd>
+
+        <dd class="clear"></dd>
+
+        <dt>Interests</dt>
+        <dd class="space-between">
+          <% Object.entries(interests).forEach(function(item){ %>
+            <div>
+              <h2><%= item[0] %></h2>
+
+              <ul>
+                <% item[1].forEach(function(interest){ %>
+                  <li><%= interest %></li>
+                <% }); %>
+              </ul>
+            </div>
+          <% }); %>
+        </dd>
+
+        <dd class="clear"></dd>
+      </dl>
+
+      <div class="clear"></div>
+
+      <time datetime="<%= updated %>">
+        Last updated: <%= (new Date(updated)).toLocaleDateString() %>.
+      </time>
+    </div>
+  </body>
+</html>
