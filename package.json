@@ -30,7 +30,7 @@
     "jest": "^24.9.0",
     "jest-environment-jsdom": "^24.9.0",
     "jest-environment-jsdom-global": "^1.2.0",
-    "marked": "^0.8.0",
+    "marked": "^4.0.10",
     "node-sass": "^4.13.0",
     "parcel-bundler": "^1.12.4",
     "react-test-renderer": "^16.12.0",
