@@ -1,104 +1,41 @@
 {
-  "name": "durasme",
-  "version": "2.0.0",
-  "description": "Personal site of Jakub Duras, Web and Mobile App Developer",
-  "main": "index.html",
-  "homepage": "https://duras.me",
+  "name": "website",
+  "version": "0.1.0",
   "private": true,
-  "repository": "https://github.com/durasj/website.git",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "core-js": "^3.6.1",
-    "luminous-lightbox": "^2.3.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "reset-css": "^5.0.1"
+    "@mdx-js/loader": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "@next/mdx": "^14.0.0",
+    "@types/mdx": "^2.0.9",
+    "framer-motion": "^10.16.4",
+    "next": "14.0.0",
+    "next-mdx-remote": "^4.4.1",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.10.4",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.25",
-    "@types/jsdom": "^12.2.4",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
-    "@types/react-test-renderer": "^16.9.1",
-    "chokidar": "^3.3.1",
-    "cross-env": "^6.0.3",
-    "cypress": "^3.8.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "front-matter": "^3.0.2",
-    "jest": "^24.9.0",
-    "jest-environment-jsdom": "^24.9.0",
-    "jest-environment-jsdom-global": "^1.2.0",
-    "marked": "^0.8.0",
-    "node-sass": "^4.13.0",
-    "parcel-bundler": "^1.12.4",
-    "react-test-renderer": "^16.12.0",
-    "rimraf": "^3.0.0",
-    "serve": "^11.2.0",
-    "sitemap": "^5.1.0",
-    "sync-directory": "^2.1.0",
-    "ts-jest": "^24.2.0",
-    "ts-node": "^8.5.4",
-    "tslint": "^5.20.1",
-    "tslint-react": "^4.1.0",
-    "typescript": "^3.7.4"
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.0",
+    "image-size": "^1.0.2",
+    "postcss": "^8",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3",
+    "typescript": "^5"
   },
-  "scripts": {
-    "build": "cross-env NODE_ENV=production ts-node parcel.ts",
-    "start": "ts-node parcel.ts",
-    "deploy": "firebase deploy",
-    "update": "npm run build && npm run deploy",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:e2e": "cypress open"
-  },
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "test",
-    "tests"
-  ],
-  "browserslist": [
-    "> 1%"
-  ],
-  "author": "Jakub Ďuraš<jakub@duras.me>",
-  "license": "MIT",
-  "jest": {
-    "testEnvironment": "jest-environment-jsdom-global",
-    "setupFiles": [
-      "<rootDir>/testing/setup.js"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{ts,tsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    },
-    "roots": [
-      "<rootDir>/src",
-      "<rootDir>/testing"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "testURL": "http://localhost",
-    "coverageDirectory": "<rootDir>/testing/coverage"
+  "prettier": {
+    "trailingComma": "all",
+    "semi": true,
+    "singleQuote": true
   }
 }

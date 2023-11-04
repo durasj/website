@@ -3,7 +3,23 @@ title: Attendance System
 description: Helps hundreds of workers get paid few millions euro a year.
 color: red
 period: 2014-2017
-skills: [php, sql, linux, administration, rest, api, git, automatic deployment, js, vuejs, cordova, jquery, gulp]
+skills:
+  [
+    php,
+    sql,
+    linux,
+    administration,
+    rest,
+    api,
+    git,
+    automatic deployment,
+    js,
+    vuejs,
+    cordova,
+    jquery,
+    gulp,
+  ]
+show: false
 ---
 
 ### Problem
@@ -12,12 +28,13 @@ The company was using mostly spreadsheets for all management. Over the time, as 
 
 ### Solution
 
-Started as simple attendance system. Now *used on a daily basis by few hundred users* writing down tens of thousands of hours, expenses and using more than 18 other functions. Developed for the company located in the Czech Republic which is part of the top 10% of the largest companies in the country.
+Started as simple attendance system. Now _used on a daily basis by few hundred users_ writing down tens of thousands of hours, expenses and using more than 18 other functions. Developed for the company located in the Czech Republic which is part of the top 10% of the largest companies in the country.
 
 Consists of three main parts:
-  - Web Application
-  - Payment System
-  - Mobile Application
+
+- Web Application
+- Payment System
+- Mobile Application
 
 #### Web Application
 
