@@ -26,6 +26,9 @@ export interface Project {
   }[];
 }
 
+const contentDir = join(process.env.PWD || './', 'content');
+const publicDir = join(process.env.PWD || './', 'public');
+
 const compile = (source: string) =>
   compileMDX<ProjectMeta>({
     source,
@@ -34,26 +37,23 @@ const compile = (source: string) =>
 
 const getImages = async (slug: string, size?: true) => {
   const files = (
-    await readdir(`./public/${slug}/`, { withFileTypes: true })
+    await readdir(join(publicDir, slug), { withFileTypes: true })
   ).filter((i) => !i.isDirectory());
 
   return files.map((f) => ({
     name: path.parse(f.name).name,
     path: `/${slug}/${f.name}`,
-    ...(size ? sizeOf(`public/${slug}/${f.name}`) : {}),
+    ...(size ? sizeOf(join(publicDir, slug, f.name)) : {}),
   }));
 };
 
 export const getProjects = async (options?: { imageSize?: true }) => {
-  const dirs = (await readdir('./content', { withFileTypes: true })).filter(
+  const dirs = (await readdir(contentDir, { withFileTypes: true })).filter(
     (i) => i.isDirectory(),
   );
 
   return dirs.map(async ({ name }) => {
-    const source = await readFile(
-      join('./content', name, 'content.md'),
-      'utf8',
-    );
+    const source = await readFile(join(contentDir, name, 'content.md'), 'utf8');
     const project = await compile(source);
 
     return {
@@ -68,7 +68,7 @@ export const getProject = async (
   slug: string,
   options?: { imageSize?: true },
 ) => {
-  const source = await readFile(`content/${slug}/content.md`, 'utf8');
+  const source = await readFile(join(contentDir, slug, 'content.md'), 'utf8');
 
   return {
     slug,
