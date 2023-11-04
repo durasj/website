@@ -2,14 +2,13 @@
 
 Repo for my simple personal portfolio hosted at [duras.me](https://duras.me). There isn't a lot to see, but you are still free to look around.
 
-Content is managed as directory structure with markdown files and photos.
+Content is managed as directory structure with markdown files and images.
 
 ```
-|- content/ - Projects - each in its own dir with content.md and photos subdir
+|- content/ - Projects - each in its own dir with content.md
+|- public/  - Static files like pictures for each project
 |- cypress/ - Cypress E2E test files.
-|- src/     - Source code - scss and ts(x) - each component in its own dir incl. unit test
-|- static/  - Static files copied as-is to dist/
-|- testing/ - Files related to unit testing like mocks and coverage.
+|- src/     - Source code - ts(x) - basic Next.js files incl. unit tests
 |- *.*      - Configuration files and other files.
 ```
 
@@ -19,4 +18,4 @@ After installing the node modules with `npm install`, just run the development s
 
 Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses mainly Next.js, React, Tailwind, MDX, and Framer Motion.
+This project uses mainly Next.js, React, Tailwind, MDX, and Framer Motion. Deployed on Vercel.

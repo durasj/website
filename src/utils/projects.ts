@@ -37,8 +37,6 @@ const getImages = async (slug: string, size?: true) => {
     await readdir(`./public/${slug}/`, { withFileTypes: true })
   ).filter((i) => !i.isDirectory());
 
-  console.log(files);
-
   return files.map((f) => ({
     name: path.parse(f.name).name,
     path: `/${slug}/${f.name}`,
