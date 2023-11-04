@@ -22,7 +22,7 @@ export default async function Home() {
           <div className="text-center">
             <div className="mt-10 flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="w-1/3 mb-6" src="/logo.svg" alt="" />
+              <img className="h-24 w-24 md:h-36 md:w-36 mb-6" src="/logo.svg" alt="" />
             </div>
 
             <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl">
