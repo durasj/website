@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         {children}
 
-        <footer className="flex flex-col items-center justify-center pb-12">
+        <footer className="flex flex-col items-center justify-center mt-8 pb-12">
           <p className="mt-8">Feel free to get in touch with me.</p>
 
           <div className="mt-6 flex items-center justify-center gap-x-8">

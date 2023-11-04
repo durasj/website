@@ -35,17 +35,15 @@ export default async function ProjectPage({ params: { slug } }: Props) {
     <div className="flex flex-col w-full">
       <header className="p-6">
         <div className="flex flex-row items-center justify-between lg:mx-auto lg:w-[80rem]">
-          <div className="flex items-center gap-4">
-            <Link href="/">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="w-12" src="/logo.svg" alt="" />
-              <span className="sr-only">Home</span>
+          <Link className="flex flex-row items-center gap-4" href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="w-12" src="/logo.svg" alt="" />
+            <span className="sr-only">Home</span>
 
-              <span className="hidden md:inline text-2xl font-semibold tracking-tight text-zinc-900">
-                Jakub Duras
-              </span>
-            </Link>
-          </div>
+            <span className="hidden md:inline text-2xl font-semibold tracking-tight text-zinc-900">
+              Jakub Duras
+            </span>
+          </Link>
 
           <div className="flex gap-4">
             <Button href="/" type="dark">
@@ -55,7 +53,7 @@ export default async function ProjectPage({ params: { slug } }: Props) {
         </div>
       </header>
 
-      <main className="flex flex-col gap-12 p-6 my-6 lg:mx-auto lg:w-[80rem]">
+      <main className="flex flex-col gap-20 p-6 my-6 lg:mx-auto lg:w-[80rem]">
         <div className="flex flex-col gap-4 mx-auto max-w-2xl lg:text-center">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
             {frontmatter.title}
