@@ -81,7 +81,7 @@ export default async function ProjectPage({ params: { slug } }: Props) {
         <div className="flex flex-col lg:flex-row gap-12">
           <article className="prose prose-zinc">{content}</article>
 
-          <div className="flex flex-col gap-8 py-8">
+          <div className="flex flex-col gap-12 py-8">
             {relevantImages.map((image) => (
               <Image
                 key={image.path}

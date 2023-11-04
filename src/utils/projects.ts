@@ -26,8 +26,8 @@ export interface Project {
   }[];
 }
 
-const contentDir = join(process.env.PWD || './', 'content');
-const publicDir = join(process.env.PWD || './', 'public');
+const contentDir = join(process.cwd() || './', 'content');
+const publicDir = join(process.cwd() || './', 'public');
 
 const compile = (source: string) =>
   compileMDX<ProjectMeta>({
