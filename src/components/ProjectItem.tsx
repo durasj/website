@@ -47,7 +47,7 @@ const ProjectItem: FC<{ project: Project; index: number }> = ({
       className="relative w-full z-10 bg-zinc-900 pb-20 sm:pb-24 xl:pb-0"
     >
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute left-[calc(50%-19rem)] top-[calc(50%-36rem)] transform-gpu blur-3xl">
+        <div className="absolute left-[calc(50%-19rem)] top-[calc(50%-36rem)] transform-gpu blur-2xl">
           <div
             className={`aspect-[1097/1023] w-[68.5625rem] ${bgColor} opacity-25`}
             style={{
@@ -56,20 +56,18 @@ const ProjectItem: FC<{ project: Project; index: number }> = ({
           />
         </div>
       </div>
-      <div
+      <motion.div
         className={`mx-auto flex max-w-7xl flex-col ${
           flip ? 'xl:flex-row' : 'xl:flex-row-reverse'
-        } items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:items-stretch`}
+        } items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 transform-gpu lg:px-8 xl:items-stretch`}
+        initial={{ opacity: 0, translateY: 64 }}
+        style={{
+          opacity: scrollYProgress,
+          translateY: offset,
+        }}
       >
         <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:flex-none">
-          <motion.div
-            className={`relative aspect-[4/3] h-full md:-mx-8 xl:mx-0`}
-            initial={{ opacity: 0, top: 64 }}
-            style={{
-              opacity: scrollYProgress,
-              top: offset,
-            }}
-          >
+          <div className={`relative aspect-[4/3] h-full md:-mx-8 xl:mx-0`}>
             <Image
               className="object-cover object-top rounded-2xl shadow-3xl"
               src={coverImage.path}
@@ -77,17 +75,10 @@ const ProjectItem: FC<{ project: Project; index: number }> = ({
               height={900}
               width={1200}
             />
-          </motion.div>
+          </div>
         </div>
         <div className="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
-          <motion.div
-            className="relative isolate pt-8 xl:pt-0"
-            initial={{ opacity: 0, top: 64 }}
-            style={{
-              opacity: scrollYProgress,
-              top: offset,
-            }}
-          >
+          <div className="relative isolate pt-8 xl:pt-0">
             <h2 className="text-2xl mb-1 font-semibold leading-8 text-white/95 sm:text-3xl sm:leading-9">
               {frontmatter.title}
             </h2>
@@ -119,9 +110,9 @@ const ProjectItem: FC<{ project: Project; index: number }> = ({
                 </Button>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </article>
   );
 };
